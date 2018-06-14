@@ -1,0 +1,27 @@
+server:
+  port: 20100
+spring:
+  data:
+    elasticsearch:
+      cluster-nodes:
+      cluster-name: elasticsearch
+  kafka:
+    bootstrap-servers:
+    consumer:
+      group-id: es-group
+      client-id: es-client
+      value-deserializer: com.example.data.elasticsearch.kafka.KafkaDeserializer
+    producer:
+      value-serializer: com.example.data.elasticsearch.kafka.KafkaSerializer
+  application:
+    name: data-conversion-elasticsearch-provider
+kafka:
+  topic:
+    elasticsearch: example.Data.Elasticsearch.Save, example.Data.Elasticsearch.Delete, example.Data.Elasticsearch.Update
+    elasticsearch-save: example.Data.Elasticsearch.Save
+    elasticsearch-delete: example.Data.Elasticsearch.Delete
+    elasticsearch-update: example.Data.Elasticsearch.Update
+  client:
+    elasticsearch-save-client: es-save-client
+    elasticsearch-delete-client: es-delete-client
+    elasticsearch-update-client: es-update-client

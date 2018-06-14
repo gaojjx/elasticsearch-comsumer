@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: data-conversion-elasticsearch-provider
+
+  #重要：配置中心地址，请确保服务中的hostname已经配置
+  cloud:
+    config:
+      uri: http://familydoctor-config-server:10010
+
+  profiles:
+    active: dev
+server:
+  port: 20100
